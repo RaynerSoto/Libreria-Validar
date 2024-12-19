@@ -4,23 +4,42 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.poty</groupId>
+    <groupId>io.github.raynersoto</groupId>
     <artifactId>ValidatorLibrary</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>Librería Validar</name>
+    <description>Una librería para validaciones en Java</description>
+    <url>https://raynersoto.github.io/Libreria-Validar/</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <developers>
         <developer>
+            <id>raynersoto</id>
             <name>Rayner Alejandro Soto Martínez</name>
             <email>raynersoto01@gmail.com</email>
         </developer>
     </developers>
-    <name>Biblioteca de validaciones de notaciones simplificada</name>
-    <description>Una biblioteca Java para simplificar validaciones</description>
-    <packaging>jar</packaging>
+
+    <scm>
+        <url>https://github.com/RaynerSoto/Libreria-Validar</url>
+        <connection>scm:git:git://github.com/RaynerSoto/Libreria-Validar.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:RaynerSoto/Libreria-Validar.git</developerConnection>
+    </scm>
 
     <properties>
-        <maven.compiler.source>22</maven.compiler.source>
-        <maven.compiler.target>22</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.javadoc.skip>false</maven.javadoc.skip>
+        <maven.source.skip>false</maven.source.skip>
     </properties>
 
     <dependencies>
@@ -31,4 +50,14 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
