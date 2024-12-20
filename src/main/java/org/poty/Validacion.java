@@ -8,27 +8,29 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 
-public class Validacion {
-    private static Validator validator;
+public class Validacion{
+    private static Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
     private Validacion(){}
 
-    public static Set<String> listarValidacionesNoCumplidastoSet(Object elemento){
-        validator = Validation.buildDefaultValidatorFactory().getValidator();
+    public static <T> Set<String> listarValidacionesNoCumplidastoSet(T elemento){
         return validator.validate(elemento).
                 stream().map(con -> con.getMessage())
                 .collect(Collectors.toSet());
     }
 
-    public static List<String> listarValidacionesNoCumplidastoList(Object elemento){
-        validator = Validation.buildDefaultValidatorFactory().getValidator();
+    public static <T> List<String> listarValidacionesNoCumplidastoList(T elemento){
         return validator.validate(elemento).
                 stream().map(con -> con.getMessage())
                 .toList();
     }
 
-    public static void validarElemento(Object elemento){
-        validator = Validation.buildDefaultValidatorFactory().getValidator();
+    /**
+     * @apiNote {@summary = Función de validación de los elementos}
+     * @exception UnsupportedOperationException
+     * @param elemento
+     */
+    public static <T> void validarElemento(T elemento){
         for(ConstraintViolation con : validator.validate(elemento)){
             throw new UnsupportedOperationException(con.getMessage());
         }
